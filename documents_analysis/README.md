@@ -1,1 +1,0 @@
-pip install langchain langgraph fastapi uvicorn[standard] grpcio grpcio-tools  
