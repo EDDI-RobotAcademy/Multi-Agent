@@ -430,3 +430,4 @@ models/
 
 # exclude donwloaded_docs
 downloaded_docs/
+.env

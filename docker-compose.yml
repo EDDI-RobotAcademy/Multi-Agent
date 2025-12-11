@@ -14,7 +14,7 @@ services:
       - redis
     restart: always
     networks:
-      - backend_net
+      - multi-agent-net
 
   # 2. MySQL
   mysql:
@@ -31,7 +31,7 @@ services:
     volumes:
       - mysql_data:/var/lib/mysql
     networks:
-      - backend_net
+      - multi-agent-net
 
   # 3. Redis
   redis:
@@ -40,10 +40,13 @@ services:
     restart: always
     ports:
       - "6379:6379"
+    environment:
+      REDIS_PASSWORD: eddi@123
+    command: ["redis-server", "--requirepass", "eddi@123"]
     volumes:
       - redis_data:/data
     networks:
-      - backend_net
+      - multi-agent-net
 
 # 볼륨 정의
 volumes:
@@ -52,5 +55,5 @@ volumes:
 
 # 네트워크 정의
 networks:
-  backend_net:
+  multi-agent-net:
     driver: bridge
