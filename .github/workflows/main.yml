@@ -49,7 +49,7 @@ jobs:
     steps:
       # GHCR 로그인
       - name: GHCR Login
-        run: echo ${{ secrets.GHCR_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+        run: echo ${{ secrets.GHCR_TOKEN }} | docker login ghcr.io -u ${{ secrets.REPO_USER }} --password-stdin
 
       # 최신 이미지 pull
       - name: Pull latest image
